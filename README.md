@@ -1,61 +1,180 @@
-# Automated-Eda-Performer
-Automated Exploratory Data Analysis and intelligent data preprocessing platform with AI-driven preprocessing recommendations.
+# AutoEDA Performer
+
+AI-Powered Automated Exploratory Data Analysis and Data Preprocessing System.
+
+AutoEDA Performer transforms raw datasets into machine-learning-ready data through intelligent profiling, automated preprocessing, and AI-driven recommendations. Built using FastAPI, LangGraph, Ollama, and modern data science tools.
+
+---
 
 ## Features
 
-- Dataset Profiling
-- Missing Value Detection
-- Duplicate Detection
-- Outlier Analysis
-- Automatic Cleaning
-- Feature Encoding
-- Scaling Recommendations
-- ML Readiness Score
-- LLM-powered Preprocessing Planning
-- Downloadable Processed Dataset
+* Dataset Profiling
+* Missing Value Detection and Handling
+* Duplicate Record Identification
+* Outlier Detection
+* Automated Data Cleaning
+* Feature Engineering Recommendations
+* Encoding and Scaling Suggestions
+* LLM-Powered Preprocessing Planning
+* ML Readiness Assessment
+* Processed Dataset Export
+* Data Quality Reports
+
+---
 
 ## Tech Stack
 
-- Python
-- FastAPI
-- Pandas
-- NumPy
-- Scikit-Learn
-- LangGraph
-- Ollama
-- Llama 3
+### Backend
+
+* Python
+* FastAPI
+* LangGraph
+
+### Data Processing
+
+* Pandas
+* NumPy
+* Scikit-Learn
+
+### AI & LLM
+
+* Ollama
+* Llama 3
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+---
 
 ## Workflow
 
+```text
 Upload Dataset
-↓
+    ↓
 Dataset Profiling
-↓
+    ↓
 AI Preprocessing Planner
-↓
+    ↓
 Data Cleaning
-↓
+    ↓
 Feature Engineering
-↓
+    ↓
 ML Readiness Evaluation
-↓
-Download Results
+    ↓
+Generate Reports
+    ↓
+Download Processed Dataset
+```
+
+---
+
+## Project Structure
+
+```text
+AutoEDA-Performer/
+│
+├── backend/
+│   ├── api/
+│   ├── services/
+│   ├── workflow/
+│   ├── models/
+│   └── main.py
+│
+├── frontend/
+│   ├── css/
+│   ├── js/
+│   └── index.html
+│
+├── uploads/
+├── outputs/
+├── sample_data/
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
 
 ## Installation
 
+```bash
+git clone https://github.com/your-username/AutoEDA-Performer.git
+cd AutoEDA-Performer
+
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Linux / macOS
+source venv/bin/activate
+
 pip install -r requirements.txt
+```
 
-## Run Backend
+---
 
+## Running the Application
+
+### Backend
+
+```bash
 uvicorn backend.main:app --reload
+```
 
-## Run Frontend
+Backend URL:
 
+```text
+http://127.0.0.1:8000
+```
+
+### Frontend
+
+```bash
 python -m http.server 5500
+```
 
-## Future Improvements
+Frontend URL:
 
-- Auto Feature Selection
-- Auto ML Model Recommendation
-- Drift Detection
-- PDF Report Generation
+```text
+http://localhost:5500
+```
+
+---
+
+## Outputs
+
+* Dataset Profile Report
+* Missing Value Analysis
+* Duplicate Detection Summary
+* Outlier Analysis
+* Feature Engineering Recommendations
+* ML Readiness Score
+* Cleaned Dataset Export
+* Processed Dataset Export
+
+---
+
+## Future Enhancements
+
+* Automated Feature Selection
+* Model Recommendation System
+* Data Drift Detection
+* PDF Report Generation
+* Advanced Visualizations
+* Explainable AI Recommendations
+* Cloud Deployment Support
+
+---
+
+
+
+## Author
+
+**Deepak Vaidhyanathan**
+B.Tech Artificial Intelligence and Machine Learning
+Sri Shakthi Institute of Engineering and Technology
