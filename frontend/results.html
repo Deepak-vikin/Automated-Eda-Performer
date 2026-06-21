@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AutoEDA Results — View your dataset profile, cleaning actions, EDA visualizations, ML readiness score, and download processed datasets.">
+  <title>AutoEDA — Results</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  
+  <div class="toast-container" id="toastContainer"></div>
+
+  <div class="app-container">
+
+    
+    <header class="app-header" style="padding-bottom:var(--space-lg);">
+      <a href="/" style="text-decoration:none;">
+        <h1 class="app-logo">
+          <span class="logo-icon">⚡</span>
+          AutoEDA
+        </h1>
+      </a>
+    </header>
+
+    
+    <div class="card" id="loadingCard" style="text-align:center;padding:var(--space-3xl);">
+      <div class="spinner" style="width:40px;height:40px;margin:0 auto var(--space-lg);border-width:3px;"></div>
+      <p style="color:var(--color-text-secondary);">Loading results...</p>
+    </div>
+
+    
+    <div class="card" id="errorCard" style="display:none;text-align:center;padding:var(--space-3xl);">
+      <p style="font-size:3rem;margin-bottom:var(--space-md);">❌</p>
+      <p style="font-size:var(--font-size-xl);font-weight:600;margin-bottom:var(--space-sm);" id="errorTitle">Something went wrong</p>
+      <p style="color:var(--color-text-muted);" id="errorMessage"></p>
+      <div class="btn-group" style="justify-content:center;margin-top:var(--space-xl);">
+        <a href="/" class="btn btn-primary">← Upload New Dataset</a>
+      </div>
+    </div>
+
+    
+    <div id="resultsContainer" style="display:none;">
+
+      
+      <div class="card" id="readinessCard" style="margin-bottom:var(--space-xl);">
+        <h2 class="section-title"><span>🎯</span> ML Readiness Score</h2>
+        <div class="readiness-ring-container">
+          <div class="readiness-ring">
+            <svg viewBox="0 0 180 180">
+              <circle class="ring-bg" cx="90" cy="90" r="80"></circle>
+              <circle class="ring-fill" id="ringFill" cx="90" cy="90" r="80"
+                      stroke-dasharray="502.65"
+                      stroke-dashoffset="502.65"></circle>
+            </svg>
+            <div class="ring-text">
+              <span class="ring-score" id="ringScore">—</span>
+              <span class="ring-label">/ 100</span>
+            </div>
+          </div>
+          <div id="readinessBadge"></div>
+        </div>
+      </div>
+
+      
+      <div class="card" style="margin-bottom:var(--space-xl);">
+        <h2 class="section-title"><span>📊</span> Dataset Profile</h2>
+        <div class="stats-grid" id="profileStats"></div>
+      </div>
+
+      
+      <div class="card" id="cleaningCard" style="margin-bottom:var(--space-xl);">
+        <h2 class="section-title"><span>🧹</span> Cleaning Actions</h2>
+        <div id="cleaningTableWrap"></div>
+      </div>
+
+      
+      <div class="card" id="edaCard" style="margin-bottom:var(--space-xl);">
+        <h2 class="section-title"><span>📈</span> EDA Visualizations</h2>
+        <div class="plots-gallery" id="plotsGallery"></div>
+      </div>
+
+
+
+      
+      <div class="card" style="margin-bottom:var(--space-xl);">
+        <h2 class="section-title"><span>📥</span> Download Results</h2>
+        <div class="download-grid" id="downloadGrid"></div>
+      </div>
+
+
+
+      
+      <div style="text-align:center;padding:var(--space-xl) 0;">
+        <a href="/" class="btn btn-secondary">← Upload Another Dataset</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get('session_id');
+
+      if (!sessionId) {
+        showError('No Session ID', 'Please upload a dataset first to get results.');
+        return;
+      }
+
+      loadResults(sessionId);
+    });
+  </script>
+</body>
+</html>
